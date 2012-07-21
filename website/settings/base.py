@@ -60,7 +60,6 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'website.urls'
@@ -99,10 +98,7 @@ INSTALLED_APPS = (
     'tinymce',
     # Other
     'easy_thumbnails',
-    # Deployment stuff
-    'gunicorn',
     'south',
-    'raven.contrib.django',
     'compressor',
     # XStatic
     'xstatic',

@@ -3,6 +3,16 @@
 
 from website.settings import *
 
+
+INSTALLED_APPS += (
+    'gunicorn',
+    'raven.contrib.django',
+)
+
+MIDDLEWARE_CLASSES += (
+    'django.middleware.cache.FetchFromCacheMiddleware',
+)
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
