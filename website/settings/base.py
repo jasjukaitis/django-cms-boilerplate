@@ -35,9 +35,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'website', 'media')
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'website', 'static')
 
 MEDIA_URL = '/media/'
 
@@ -120,7 +120,7 @@ STATICFILES_FINDERS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'templates', 'website'),
+    os.path.join(PROJECT_DIR, 'website', 'templates', 'website'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
