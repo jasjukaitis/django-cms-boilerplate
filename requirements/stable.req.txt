@@ -11,7 +11,7 @@ django-tinymce
 django-compressor
 django-admin-tools
 xstatic
-django-filer
+-e git+https://github.com/stefanfoulis/django-filer.git#egg=django_filer
 cmsplugin-filer
 #django-admintools-bootstrap
 dashboardmods
