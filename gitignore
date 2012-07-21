@@ -8,3 +8,4 @@ website/media/
 website/static/CACHE/
 website/settings/local.py
 logs/
+*.mo

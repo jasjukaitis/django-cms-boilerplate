@@ -5,7 +5,8 @@ import os
 
 from website.settings import *
 
-PROJECT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), ".."))
+PROJECT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__),
+                               '..', '..'))
 
 gettext = lambda s: s
 
@@ -142,6 +143,10 @@ STATICFILES_FINDERS = (
     'django_xstatic.finders.XStaticFinder',
     'compressor.finders.CompressorFinder',
 )
+
+LOCALE_PATHS = [
+    os.path.join(PROJECT_DIR, 'website', 'locale'),
+]
 
 # Administration
 ADMIN_TOOLS_INDEX_DASHBOARD = 'website.dashboard.IndexDashboard'

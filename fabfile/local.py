@@ -14,6 +14,9 @@ except ImportError:
     pass
 
 
+MANAGEPY = '%s/manage.py' % settings.PROJECT_DIR
+
+
 def init_project():
     """Initialize the project."""
     install_dev_requirements()
@@ -37,13 +40,15 @@ def install_dev_requirements():
 
 def po():
     """Generate message catalog for all languages."""
-    local('python manage.py makemessages -a -i "env*"')
-    local('python manage.py makemessages -d djangojs -a -i "env*"')
+    with lcd(os.path.join(settings.PROJECT_DIR, 'website')):
+        local('python %s makemessages -a -i "env*"' % MANAGEPY)
+        local('python %s makemessages -d djangojs -a -i "env*"' % MANAGEPY)
 
 
 def mo():
     """Compile all message catalogs."""
-    local('python manage.py compilemessages')
+    with lcd(os.path.join(settings.PROJECT_DIR, 'website')):
+        local('python %s compilemessages' % MANAGEPY)
 
 
 def init_git():
@@ -58,10 +63,10 @@ def init_git():
 
 def devserver(host='localhost', port=8000):
     """Start development server."""
-    local('python manage.py runserver %s:%s' % (host, port))
+    local('python %s runserver %s:%s' % (MANAGEPY, host, port))
 
 
 def syncdb():
     """Sync database."""
-    local('python manage.py syncdb --all')
-    local('python manage.py migrate --fake')
+    local('python %s syncdb --all' % MANAGEPY)
+    local('python %s migrate --fake' % MANAGEPY)
