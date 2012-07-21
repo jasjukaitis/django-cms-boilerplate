@@ -1,0 +1,22 @@
+# Requirements for production
+# Use pip install -r stable.req.txt
+django-cms
+south
+gunicorn
+raven
+python-memcached
+psycopg2
+PIL
+django-tinymce
+django-compressor
+django-admin-tools
+xstatic
+django-filer
+cmsplugin-filer
+#django-admintools-bootstrap
+dashboardmods
+-e git+https://github.com/Gautier/django-xstatic.git#egg=django-xstatic
+xstatic-jquery
+xstatic-bootstrap
+xstatic-less
+xstatic-html5shiv

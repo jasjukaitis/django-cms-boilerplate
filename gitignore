@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+.DS_Store
+*~
+*.sql
+website/dev.db
+website/media/
+website/static/CACHE/
+website/settings/local.py
+logs/
