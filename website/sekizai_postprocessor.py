@@ -13,6 +13,6 @@ def compress(context, data, name):
     Data is the string from the template (the list of js files in this case)
     Name is either 'js' or 'css' (the sekizai namespace)
 
-    We basically just manually pass the string through the {% compress 'js' %} template tag
+    We basically just manually pass the string through the compress 'js' template tag
     """
     return CompressorNode(Template(data).nodelist, name, 'file').render({})
