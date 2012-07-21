@@ -48,10 +48,8 @@ def mo():
 
 def init_git():
     """Initialize the git repository."""
-    rmdir('.git')
     local('git init')
-    remove('.gitignore')
-    rename('gitignore', '.gitignore')
+    os.rename('gitignore', '.gitignore')
     local('git add -A')
     local('git commit -m "Initial commit."')
     local('git branch -m develop')
