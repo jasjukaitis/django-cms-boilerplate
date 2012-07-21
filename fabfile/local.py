@@ -20,7 +20,7 @@ def init_project():
     syncdb()
     mo()
     # Clean README
-    open('README', 'w').close()
+    open('README.rst', 'w').close()
     init_git()
 
 
