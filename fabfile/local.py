@@ -16,7 +16,7 @@ except ImportError:
 
 def init_project():
     """Initialize the project."""
-    install_requirements()
+    install_dev_requirements()
     syncdb()
     mo()
     # Clean README
