@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     }),
     url(r'^robots\.txt$', direct_to_template,
         {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('filer.server.urls')),
     url(r'^', include('cms.urls')),
 )
