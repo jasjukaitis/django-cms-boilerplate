@@ -3,7 +3,7 @@
 
 import os
 
-from website.settings import *
+from {{ project_name }}.settings import *
 
 PROJECT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__),
                                '..', '..'))
@@ -35,9 +35,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'website', 'media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, '{{ project_name }}', 'website',
+                          'media')
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'website', 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, '{{ project_name }}', 'website',
+                           'static')
 
 MEDIA_URL = '/media/'
 
@@ -62,10 +64,10 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'website.urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
 INSTALLED_APPS = (
-    'website',
+    '{{ project_name }}.website',
     # Custom administration
     #'admintools_bootstrap',
     'admin_tools.dashboard',
@@ -116,7 +118,8 @@ STATICFILES_FINDERS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'website', 'templates', 'website'),
+    os.path.join(PROJECT_DIR, '{{ project_name }}', 'website', 'templates',
+                 'website'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -141,7 +144,7 @@ STATICFILES_FINDERS = (
 )
 
 LOCALE_PATHS = [
-    os.path.join(PROJECT_DIR, 'website', 'locale'),
+    os.path.join(PROJECT_DIR, '{{ project_name }}', 'locale'),
 ]
 
 # Administration

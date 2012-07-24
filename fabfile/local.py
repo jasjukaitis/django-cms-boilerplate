@@ -7,7 +7,7 @@ from fabric import colors
 from fabric.api import *
 from fabric.contrib import django
 
-django.settings_module('website.settings')
+django.settings_module('{{ project_name }}.settings')
 try:
     from django.conf import settings
 except ImportError:
@@ -47,7 +47,7 @@ def po():
 
 def mo():
     """Compile all message catalogs."""
-    with lcd(os.path.join(settings.PROJECT_DIR, 'website')):
+    with lcd(os.path.join(settings.PROJECT_DIR, '{{ project_name }}')):
         local('python %s compilemessages' % MANAGEPY)
 
 

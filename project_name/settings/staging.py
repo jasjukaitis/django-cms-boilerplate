@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-# Config for production
+# Config for staging
 
-from website.settings import *
-
+from {{ project_name }}.settings import *
 
 INSTALLED_APPS += (
     'gunicorn',
@@ -12,13 +11,6 @@ INSTALLED_APPS += (
 MIDDLEWARE_CLASSES += (
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
 
 LOGGING = {
     'version': 1,

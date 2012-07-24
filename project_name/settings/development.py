@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Config for development."""
 
-from website.settings import *
+from {{ project_name }}.settings import *
 
 DEBUG = True
 
@@ -12,7 +12,7 @@ COMPRESS_PRECOMPILERS = ()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_DIR, 'website', 'dev.db'),
+        'NAME': os.path.join(PROJECT_DIR, '{{ project_name }}', 'dev.db'),
     }
 }
 
