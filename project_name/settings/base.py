@@ -148,7 +148,7 @@ LOCALE_PATHS = [
 ]
 
 # Administration
-ADMIN_TOOLS_INDEX_DASHBOARD = 'website.dashboard.IndexDashboard'
+ADMIN_TOOLS_INDEX_DASHBOARD = '{{ project_name }}.website.dashboard.IndexDashboard'
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',

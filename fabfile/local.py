@@ -40,7 +40,7 @@ def install_dev_requirements():
 
 def po():
     """Generate message catalog for all languages."""
-    with lcd(os.path.join(settings.PROJECT_DIR, 'website')):
+    with lcd(os.path.join(settings.PROJECT_DIR, '{{ project_name }}')):
         local('python %s makemessages -a -i "env*"' % MANAGEPY)
         local('python %s makemessages -d djangojs -a -i "env*"' % MANAGEPY)
 
