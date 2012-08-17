@@ -4,6 +4,7 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic.simple import direct_to_template
 
 from cms.sitemaps import CMSSitemap
@@ -25,10 +26,10 @@ urlpatterns = patterns('',
     url(r'^', include('cms.urls')),
 )
 
+urlpatterns += staticfiles_urlpatterns()
+
 if settings.DEBUG:
     urlpatterns += (
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.STATIC_ROOT,}),
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,}),
     )
