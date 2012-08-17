@@ -20,3 +20,4 @@ xstatic-jquery
 xstatic-bootstrap
 xstatic-less
 xstatic-html5shiv
+-e git+https://github.com/raphaa/django-utils.git#egg=django-utils

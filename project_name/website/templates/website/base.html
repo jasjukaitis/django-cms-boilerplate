@@ -21,7 +21,7 @@
     <script src="{{ STATIC_URL }}js/less.min.js"></script>
     {% endif %}
     {% endaddtoblock %}
-    {% render_block "css" postprocessor "website.sekizai_postprocessor.compress" %}
+    {% render_block "css" postprocessor "django_utils.sekizai_postprocessor.compress" %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/html5shiv.min.js"></script>
   </head>
   <body>
@@ -38,7 +38,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/scripts.js"></script>
     {% endaddtoblock %}
-    {% render_block "js" postprocessor "website.sekizai_postprocessor.compress" %}
+    {% render_block "js" postprocessor "django_utils.sekizai_postprocessor.compress" %}
     {% addtoblock "css" %}
     <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/website.less" />
     {% endaddtoblock %}

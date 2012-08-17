@@ -102,6 +102,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'south',
     'compressor',
+    'django_utils',
     # XStatic
     'xstatic',
     'xstatic.pkg.jquery',
