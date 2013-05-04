@@ -1,5 +1,6 @@
 # Requirements for production
 # Use pip install -r stable.req.txt
+django<1.5
 django-cms
 south
 gunicorn
@@ -7,17 +8,13 @@ raven
 python-memcached
 psycopg2
 PIL
+python-dateutil
+supervisor
 django-tinymce
 django-compressor
-django-admin-tools
-xstatic
--e git+https://github.com/stefanfoulis/django-filer.git#egg=django_filer
-cmsplugin-filer
-#django-admintools-bootstrap
-dashboardmods
--e git+https://github.com/Gautier/django-xstatic.git#egg=django-xstatic
-xstatic-jquery
-xstatic-bootstrap
-xstatic-less
-xstatic-html5shiv
--e git+https://github.com/raphaa/django-utils.git#egg=django-utils
+django-admin-shortcuts
+djangocms-admin-style
+https://github.com/raphaa/django-rj-utils/archive/master.zip#egg=django-rj-utils
+django-bootstrap-pagination
+django-bootstrap-toolkit
+django-piwik

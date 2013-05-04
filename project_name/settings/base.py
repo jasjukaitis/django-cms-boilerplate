@@ -35,11 +35,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, '{{ project_name }}', 'website',
-                          'media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'staticfiles', 'media')
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, '{{ project_name }}', 'website',
-                           'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles', 'static')
 
 MEDIA_URL = '/media/'
 
@@ -53,12 +51,13 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'cms.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
@@ -69,10 +68,9 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 INSTALLED_APPS = (
     '{{ project_name }}.website',
     # Custom administration
-    #'admintools_bootstrap',
-    'admin_tools.dashboard',
-    #'admin_tools.menu',
-    #'admin_tools.theming',
+    'admin_shortcuts',
+    'djangocms_admin_style',
+    # Default Django apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -87,34 +85,23 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'cms.plugins.text',
-    # Further admin stuff
-    'dashboardmods',
-    'filer',
-    # CMS extensions
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_teaser',
-    'cmsplugin_filer_video',
+    'cms.plugins.link',
+    'cms.plugins.picture',
     # Widgets
     'tinymce',
     # Other
     'easy_thumbnails',
     'south',
     'compressor',
-    'django_utils',
-    # XStatic
-    'xstatic',
-    'xstatic.pkg.jquery',
-    'xstatic.pkg.bootstrap',
-    'xstatic.pkg.less',
-    'xstatic.pkg.html5shiv',
+    'django_rj_utils',
+    'bootstrap_toolkit',
+    'bootstrap-pagination',
+    'piwik',
 )
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django_xstatic.finders.XStaticFinder',
     'compressor.finders.CompressorFinder',
 )
 
@@ -140,16 +127,12 @@ WSGI_APPLICATION = 'website.wsgi.application'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django_xstatic.finders.XStaticFinder',
     'compressor.finders.CompressorFinder',
 )
 
 LOCALE_PATHS = [
     os.path.join(PROJECT_DIR, '{{ project_name }}', 'locale'),
 ]
-
-# Administration
-ADMIN_TOOLS_INDEX_DASHBOARD = '{{ project_name }}.website.dashboard.IndexDashboard'
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -168,6 +151,9 @@ CMS_TEMPLATES = (
 CMS_MENU_TITLE_OVERWRITE = True
 
 CMS_USE_TINYMCE = True
+
+#CMS_PLACEHOLDER_CONF = {
+#}
 
 # TinyMCE
 TINYMCE_DEFAULT_CONFIG = {
@@ -193,3 +179,18 @@ TINYMCE_SPELLCHECKER = True
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
 )
+
+# Admin Shortcuts
+ADMIN_SHORTCUTS = [
+    {
+        'shortcuts': [
+            {
+                'url': '/',
+            },
+            {
+                'url_name': 'admin:cms_page_changelist',
+                'title': _(u'Pages'),
+            },
+        ]
+    },
+]

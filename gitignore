@@ -4,8 +4,7 @@
 *~
 *.sql
 {{ project_name }}/dev.db
-{{ project_name }}/website/media/
-{{ project_name }}/website/static/CACHE/
 {{ project_name }}/settings/local.py
 logs/
 *.mo
+staticfiles/

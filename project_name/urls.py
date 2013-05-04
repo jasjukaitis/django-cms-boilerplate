@@ -13,16 +13,12 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {
         'sitemaps': {
             'cmspages': CMSSitemap,
         }
     }),
-    url(r'^robots\.txt$', direct_to_template,
-        {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^', include('filer.server.urls')),
     url(r'^', include('cms.urls')),
 )
 

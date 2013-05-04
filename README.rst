@@ -1,5 +1,5 @@
-Django(-CMS) Boilerplate
-========================
+Django CMS Boilerplate
+=====================
 
 This is another Django boilerplate adapted for my work.
 
@@ -10,8 +10,6 @@ https://gist.github.com/3155888
 Prerequisites
 -------------
 
- * Django
- * Fabric
  * Git
 
 

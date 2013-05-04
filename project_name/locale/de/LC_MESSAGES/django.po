@@ -16,19 +16,3 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-#: dashboard.py:20
-msgid "Applications"
-msgstr "Applikationen"
-
-#: dashboard.py:26
-msgid "Administration"
-msgstr "Administration"
-
-#: dashboard.py:31 dashboard.py:49
-msgid "Recent Actions"
-msgstr "Letzte Aktionen"
-
-#: settings/base.py:23
-msgid "German"
-msgstr "Deutsch"
