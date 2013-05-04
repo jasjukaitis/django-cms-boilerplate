@@ -3,6 +3,8 @@
 
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 from {{ project_name }}.settings import *
 
 PROJECT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__),
