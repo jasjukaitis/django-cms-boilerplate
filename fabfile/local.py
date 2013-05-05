@@ -68,7 +68,6 @@ def devserver(host='localhost', port=8000):
 def syncdb(noinput=False):
     """Sync database."""
     if noinput:
-        local('python %s syncdb --all --noinput' % MANAGEPY)
+        local('python %s syncdb --migrate --noinput' % MANAGEPY)
     else:
-        local('python %s syncdb --all' % MANAGEPY)
-    local('python %s migrate --fake' % MANAGEPY)
+        local('python %s syncdb --migrate' % MANAGEPY)
