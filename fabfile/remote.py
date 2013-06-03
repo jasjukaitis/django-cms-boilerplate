@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Fab commands that are running on remotes."""
 
+from __future__ import with_statement
 from fabric.api import *
 from fabric.context_managers import shell_env
 
@@ -22,9 +23,11 @@ def supervisord(task='start'):
         supervisord('stop')
         supervisord('start')
 
+
 def supervisorctl(task):
     """Controls the supervisor."""
     run('supervisorctl %s %s' % (task, PROJECT_NAME))
+
 
 def memcached(task='start'):
     """Controls the memcached."""
@@ -36,9 +39,11 @@ def memcached(task='start'):
         memcached('stop')
         memcached('start')
 
+
 def nginx(task='reload'):
     """Controls the nginx webserver."""
     run('nginx -s %s' % task)
+
 
 def update_source():
     """Updates the project."""
@@ -46,12 +51,21 @@ def update_source():
         run('git pull')
         run('pip install --no-deps -Ur requirements/stable.req.txt')
         with shell_env(ENV='production'):
-            run('./manage.py syncdb --migrate')
+            run('./manage.py syncdb --all --migrate')
             run('./manage.py collectstatic --noinput')
+
+
+def clear_remote_static_cache():
+    """Clears the django compressor cache on the remote server."""
+    with cd(PROJECT_DIR), prefix('workon %s' % VIRTUAL_ENV_NAME):
+        with shell_env(ENV='production'):
+            run('fab clear_static_cache')
+
 
 def deploy():
     """Deploys."""
     supervisorctl('stop')
     update_source()
+    clear_remote_static_cache()
     supervisorctl('start')
-    memcached('restart')
+    memcached('start')
