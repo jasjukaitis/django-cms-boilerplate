@@ -17,7 +17,6 @@ urlpatterns = patterns('',
             'cmspages': CMSSitemap,
         }
     }),
-    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('cms.urls')),
 )
 
