@@ -86,11 +86,8 @@ INSTALLED_APPS = (
     'mptt',
     'menus',
     'sekizai',
-    'cms.plugins.text',
     'cms.plugins.link',
     'cms.plugins.picture',
-    # Widgets
-    'tinymce',
     # Other
     'easy_thumbnails',
     'south',
@@ -150,32 +147,9 @@ CMS_TEMPLATES = (
     ('default.html', 'Default'),
 )
 
-CMS_MENU_TITLE_OVERWRITE = True
-
-CMS_USE_TINYMCE = True
-
 #CMS_PLACEHOLDER_CONF = {
 #}
 
-# TinyMCE
-TINYMCE_DEFAULT_CONFIG = {
-    'plugins': 'spellchecker, contextmenu, advlist, style, paste, lists, '
-        'fullscreen',
-    'theme': 'advanced',
-    'skin': 'o2k7',
-    'entity_encoding': 'raw',
-    'theme_advanced_resizing': '',
-    'theme_advanced_toolbar_location': 'top',
-    'theme_advanced_toolbar_align': 'left',
-    'theme_advanced_buttons1': 'bold, italic, underline, |, justifyleft, '
-        'justifycenter, justifyright, justifyfull, |, bullist, numlist, '
-        'outdent, indent, |, code, |, fullscreen',
-    'theme_advanced_buttons2': '',
-    'width': '800',
-    'height': '350',
-}
-
-TINYMCE_SPELLCHECKER = True
 
 # Important! Less must be installed: http://lesscss.org/#-server-side-usage
 COMPRESS_PRECOMPILERS = (
