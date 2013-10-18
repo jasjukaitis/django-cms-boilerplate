@@ -69,9 +69,9 @@ def devserver(host='localhost', port=8000):
 def syncdb(noinput=False):
     """Sync database."""
     if noinput:
-        local('python %s syncdb --all --migrate --noinput' % MANAGEPY)
+        local('python %s syncdb --migrate --noinput' % MANAGEPY)
     else:
-        local('python %s syncdb --all --migrate' % MANAGEPY)
+        local('python %s syncdb --migrate' % MANAGEPY)
 
 
 def clear_static_cache():
