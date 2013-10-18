@@ -3,8 +3,8 @@
 .DS_Store
 *~
 *.sql
-{{ project_name }}/dev.db
-{{ project_name }}/settings/local.py
+*/dev.db
+*/settings/local.py
 logs/
 *.mo
 staticfiles/
